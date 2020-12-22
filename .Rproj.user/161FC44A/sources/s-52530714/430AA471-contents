@@ -1,0 +1,59 @@
+> results=IFAA(MicrobData=newdat[1:500, c(9, 11:50)],
++              CovData=newdat[1:500, c(9,10)],
++              linkIDname="id",
++              testCov=c("x1"),
++              ctrlCov=NULL,
++              nRef=4,
++              nPermu=4,
++              sequentialRun=F,
++              x1permut=T,
++              fwerRate=0.25,
++              bootB=5)
+Data dimensions (after removing missing data if any):
+11752 samples
+40 taxa/OTU/ASV
+1 testCov variables in the analysis
+These are the testCov variables:
+x1
+0 ctrlCov variables in the analysis 
+1 binary covariates in the analysis
+These are the binary covariates:
+x1
+56.41 percent of microbiome sequencing reads are zero
+Start Phase 1 association identification
+start Original screen
+14 parallel jobs are registered for analyzing 4 reference taxa in Phase 1a
+100percent of phase 1a analysis has been done
+Original screen done and took14.6838333333333minutes
+[1] "x1permut:"
+[1] TRUE
+maximum memory used after origin screen: 363.5 Mb
+start to run permutation
+14 parallel jobs are registered for the permutation analysis in Phase 1b
+[1] "permut forLoopN:"
+[1] 2
+50 percent of phase 1b analysis has been done.
+100 percent of phase 1b analysis has been done.
+maximum memory used after permutation screen: 363.5 Mb
+Permutation analysis done and took 37.9231666666667 minutes
+Phase 1 Associaiton identification is done and used 52.63 minutes
+Start Phase 2 parameter estimation
+Final Reference Taxa are: rawCount37
+Start estimation for the 1th final reference taxon: rawCount37
+[1] "dim(x):"
+[1] 193157     78
+[1] "length(y):"
+[1] 193157
+HDCI subSamplK: 1 
+HDCI nRuns: 1 
+[1] "dim(xSub):"
+[1] 193157     78
+[1] "length(ySub):"
+[1] 193157
+class(xSub):  dgCMatrix 
+class(ySub):  dsparseVector 
+16 parallel jobs are registered for bootstrp in Phase 2.
+100 percent of the estimation analsis for refrence taxon microb37 have been done.
+Estimation done for the1th final reference taxon: rawCount37 and it took 15.894 minutes
+Phase 2 parameter estimation done and took 15.894 minutes.
+The entire analysis took 68.53 minutes

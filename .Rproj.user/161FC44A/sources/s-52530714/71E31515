@@ -1,0 +1,32 @@
+{
+    "id": "71E31515",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1608659604027.0,
+    "source_on_save": false,
+    "relative_order": 21,
+    "properties": {
+        "expression": "dataM",
+        "caption": "dataM",
+        "totalObservations": 20,
+        "displayedObservations": 20,
+        "variables": 60,
+        "cacheKey": "38725A2C",
+        "object": "dataM",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=dataM&cache_key=38725A2C&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1608316261,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1608659604027,
+    "read_only": false,
+    "read_only_alternatives": []
+}

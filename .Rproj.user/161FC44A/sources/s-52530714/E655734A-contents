@@ -1,0 +1,72 @@
+
+{
+  library(picasso) ## for fast MCP implementation 
+  library(foreach) ## for parallel computing foreach()
+  library(rlecuyer) ## for setting seed for foreach loop
+  library(Matrix) ## for sparse storage of zeros
+  library(HDCI) ## for computing bootstrap LASSO OLS estimate and confidence interval
+  library(parallel) ## for parallel computing
+  library(doParallel) ## for bootstrap Lasso OLS
+  library(future) ## for availableCores()
+  library(oem) ## for oem(),cv.oem()
+  library(bigmemory)
+  library(bigalgebra)
+  library(biganalytics)
+}
+
+
+source("folderSource.R")
+sourceFolder("./IFAA_SSgit")
+
+mmm=get(load("dataM.RData"))
+ccc=get(load("dataC.RData"))
+
+results=IFAA(MicrobData=mmm,
+             CovData=ccc,
+             linkIDname="id",
+             testCov=c("v1","v2"),
+             ctrlCov=c("v3"),
+             nRef=4,
+             nPermu=4,
+             sequentialRun=F,
+             x1permut=T,
+             fwerRate=0.25,
+             bootB=5)
+
+profvis::profvis({
+  results=IFAA(MicrobData=mmm,
+               CovData=ccc,
+               linkIDname="id",
+               testCov=c("v1","v2"),
+               ctrlCov=c("v3"),
+               nRef=4,
+               nPermu=4,
+               sequentialRun=F,
+               x1permut=T,
+               fwerRate=0.25,
+               bootB=5)
+})
+
+results$analysisResults$estByCovList
+
+rm(list=ls())
+
+
+
+### New dataset
+
+newdat <- read.csv("IPWEE1.csv")
+
+system.time(as.big.matrix(as.matrix(newdat)))
+
+results=IFAA(MicrobData=newdat[1:500, c(9, 11:50)],
+             CovData=newdat[1:500, c(9,10)],
+             linkIDname="id",
+             testCov=c("x1"),
+             ctrlCov=NULL,
+             nRef=4,
+             nPermu=4,
+             sequentialRun=F,
+             x1permut=T,
+             fwerRate=0.25,
+             bootB=5)
